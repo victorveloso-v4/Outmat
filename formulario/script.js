@@ -15,7 +15,18 @@
   let currentStep = 0;
 
   function onlyDigits(value) {
-    return String(value || '').replace(/[^0-9]/g, '').slice(0, 11);
+    const rawValue = String(value || '').trim();
+    let digits = rawValue.replace(/[^0-9]/g, '');
+
+    if (digits.startsWith('0055')) {
+      digits = digits.slice(4);
+    } else if (/^\+[\s-]*55/.test(rawValue)) {
+      digits = digits.slice(2);
+    } else if (digits.length > 11 && digits.startsWith('55')) {
+      digits = digits.slice(2);
+    }
+
+    return digits.slice(0, 11);
   }
 
   function formatBrazilPhone(value) {
