@@ -11,7 +11,35 @@ if (leadForm) {
   const nextButton = leadForm.querySelector(".form-next");
   const submitButton = leadForm.querySelector(".submit-button");
   const formScroll = leadForm.querySelector(".form-scroll");
+  const phoneField = leadForm.querySelector('input[name="telefone"]');
   let currentStep = 0;
+
+  const formatBrazilPhone = (value) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    const areaCode = digits.slice(0, 2);
+    const firstPart = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
+    const secondPart = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+
+    if (digits.length <= 2) {
+      return areaCode ? `(${areaCode}` : "";
+    }
+
+    if (!secondPart) {
+      return `(${areaCode}) ${firstPart}`;
+    }
+
+    return `(${areaCode}) ${firstPart}-${secondPart}`;
+  };
+
+  if (phoneField) {
+    phoneField.addEventListener("input", () => {
+      phoneField.value = formatBrazilPhone(phoneField.value);
+    });
+
+    phoneField.addEventListener("blur", () => {
+      phoneField.value = formatBrazilPhone(phoneField.value);
+    });
+  }
 
   const renderStep = () => {
     steps.forEach((step, index) => {
