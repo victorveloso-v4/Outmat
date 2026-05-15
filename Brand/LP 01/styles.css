@@ -56,26 +56,31 @@ select {
   justify-content: space-between;
   gap: 24px;
   padding: 18px clamp(20px, 5vw, 72px);
-  background: rgba(255, 255, 255, 0.86);
-  border-bottom: 1px solid rgba(220, 231, 245, 0.9);
+  background: rgba(0, 31, 61, 0.94);
+  border-bottom: 1px solid rgba(0, 109, 238, 0.28);
+  box-shadow: 0 16px 42px rgba(0, 31, 61, 0.18);
   backdrop-filter: blur(18px);
 }
 
 .brand img {
   width: 148px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
-  color: #3b4f69;
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.82rem;
   font-weight: 700;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  color: #ffffff;
+}
+
 .site-footer a:hover {
   color: var(--blue);
 }
@@ -103,9 +108,10 @@ select {
 
 .header-cta {
   padding: 0 18px;
-  background: var(--blue-dark);
+  background: var(--blue);
   color: var(--white);
   font-size: 0.78rem;
+  box-shadow: 0 14px 30px rgba(0, 109, 238, 0.24);
 }
 
 .primary-button,
