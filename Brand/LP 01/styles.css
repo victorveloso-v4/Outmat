@@ -379,11 +379,11 @@ h1 {
 .lead-form {
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
-  gap: 16px;
-  width: min(100%, 430px);
-  height: min(600px, calc(100vh - 142px));
-  min-height: 520px;
-  padding: 24px 24px 0;
+  gap: 14px;
+  width: min(100%, 380px);
+  height: min(600px, calc(100vh - 132px));
+  min-height: 500px;
+  padding: 20px 20px 0;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(0, 109, 238, 0.18);
@@ -393,9 +393,9 @@ h1 {
 }
 
 .form-heading p {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   color: var(--blue);
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -403,7 +403,7 @@ h1 {
 .form-heading h2 {
   margin-bottom: 4px;
   color: var(--blue-dark);
-  font-size: 1.26rem;
+  font-size: 1.12rem;
   line-height: 1.2;
 }
 
@@ -445,7 +445,7 @@ h1 {
 
 .form-step {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
   margin: 0;
   padding: 0 0 12px;
@@ -459,7 +459,7 @@ h1 {
 .form-step legend {
   margin-bottom: 4px;
   color: var(--blue-dark);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 800;
 }
 
@@ -470,16 +470,18 @@ h1 {
 
 .lead-form label > span {
   color: #20324a;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 800;
 }
 
 .lead-form input,
 .lead-form select {
   width: 100%;
-  min-height: 44px;
+  min-height: 42px;
   padding: 0 12px;
   color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.2;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -498,8 +500,8 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 10px;
-  margin: 0 -24px;
-  padding: 16px 24px 24px;
+  margin: 0 -20px;
+  padding: 14px 20px 20px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 18%),
     #ffffff;
@@ -512,8 +514,9 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 50px;
+  min-height: 46px;
   border-radius: 6px;
+  font-size: 0.9rem;
   font-weight: 800;
   cursor: pointer;
 }
@@ -1466,9 +1469,10 @@ h1 {
   }
 
   .lead-form {
-    width: 100%;
+    width: min(100%, 390px);
     height: min(600px, calc(100vh - 48px));
-    min-height: 500px;
+    min-height: 480px;
+    margin: 0 auto;
     padding: 18px 18px 0;
   }
 
