@@ -904,6 +904,50 @@ h1 {
   opacity: 0.12;
 }
 
+.marquee-band {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding: 18px 0;
+  color: #ffffff;
+  background: var(--blue-dark);
+  border-top: 3px solid var(--blue);
+  border-bottom: 3px solid var(--blue);
+  box-shadow: 0 18px 46px rgba(0, 49, 96, 0.18);
+}
+
+.marquee-track {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: max-content;
+  animation: marqueeScroll 26s linear infinite;
+}
+
+.marquee-track span {
+  padding: 0 clamp(24px, 3.5vw, 48px);
+  color: #ffffff;
+  font-size: clamp(1.35rem, 3vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.marquee-track span:nth-of-type(even) {
+  color: var(--blue);
+}
+
+.marquee-track svg {
+  width: clamp(22px, 2.4vw, 34px);
+  height: clamp(22px, 2.4vw, 34px);
+  flex: 0 0 auto;
+  color: var(--blue);
+  fill: currentColor;
+  stroke-width: 1.8;
+}
+
 .hero-background::before {
   left: -18%;
   top: -18%;
@@ -1400,6 +1444,16 @@ h1 {
   }
 }
 
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @media (max-width: 1080px) {
   .hero-grid {
     grid-template-columns: 1fr 0.78fr;
@@ -1443,6 +1497,10 @@ h1 {
 
   .hero-section {
     padding-bottom: 72px;
+  }
+
+  .marquee-band {
+    padding: 14px 0;
   }
 
   .hero-grid {
