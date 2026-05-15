@@ -22,7 +22,9 @@ Framework preset: Other
 
 ## Iframe
 
-Exemplo:
+Use o arquivo `embed-greatpages.html` como base para colar no bloco HTML do GreatPages.
+
+Exemplo simples:
 
 ```html
 <iframe
@@ -33,3 +35,5 @@ Exemplo:
   loading="lazy"
 ></iframe>
 ```
+
+Para evitar travar o scroll da pagina quando o mouse estiver em cima do iframe, use o snippet completo de `embed-greatpages.html`. Ele escuta o `postMessage` enviado pelo iframe e aplica `window.scrollBy()` na pagina pai.

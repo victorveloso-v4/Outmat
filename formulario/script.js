@@ -45,6 +45,23 @@
     }, '*');
   }
 
+  function forwardWheelToParent(event) {
+    if (window.parent === window) return;
+
+    event.preventDefault();
+
+    try {
+      window.parent.postMessage({
+        source: 'outmat-formulario',
+        type: 'wheel',
+        deltaX: event.deltaX,
+        deltaY: event.deltaY
+      }, '*');
+    } catch (error) {
+      return;
+    }
+  }
+
   function renderStep() {
     steps.forEach(function(step, index) {
       const isActive = index === currentStep;
@@ -161,5 +178,6 @@
 
   window.addEventListener('load', postIframeHeight);
   window.addEventListener('resize', postIframeHeight);
+  window.addEventListener('wheel', forwardWheelToParent, { passive: false });
   renderStep();
 })();
