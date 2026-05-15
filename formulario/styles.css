@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.formulario-page,
+.formulario-page *,
+.formulario-page *::before,
+.formulario-page *::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif !important;
+}
+
+.formulario-page {
+  --white: #ffffff;
+  --blue: #006dee;
+  --blue-dark: #003160;
+  --ink: #07111f;
+  --line: #dce7f5;
+  --shadow: 0 24px 70px rgba(0, 49, 96, 0.14);
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  color: var(--ink);
+  font-size: 16px;
+  background: transparent;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button,
+input,
+select {
+  font-family: "Montserrat", Arial, sans-serif !important;
+}
+
+.formulario-parceria-wrap {
+  width: min(100%, 420px);
+}
+
+.hero-proof-card {
+  position: relative;
+  display: grid;
+  gap: 7px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 16px 18px;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(0, 109, 238, 0.38), transparent 44%),
+    var(--blue-dark);
+  border: 1px solid rgba(0, 109, 238, 0.32);
+  border-radius: 8px;
+  box-shadow: 0 22px 58px rgba(0, 49, 96, 0.16);
+}
+
+.hero-proof-card::after {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 26px;
+  height: 26px;
+  content: "";
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  transform: rotate(45deg);
+}
+
+.hero-proof-card span,
+.hero-proof-card small {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-proof-card strong {
+  max-width: 290px;
+  color: #ffffff;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.hero-proof-card small {
+  color: var(--blue);
+}
+
+.lead-form {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 11px;
+  width: 100%;
+  height: 540px;
+  min-height: 540px;
+  padding: 18px 18px 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(0, 109, 238, 0.18);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.form-heading p {
+  margin: 0 0 5px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.form-heading h1 {
+  margin: 0 0 4px;
+  color: var(--blue-dark);
+  font-size: 1.22rem;
+  line-height: 1.2;
+}
+
+.form-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.form-progress span {
+  height: 5px;
+  overflow: hidden;
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.form-progress span.is-active {
+  background: var(--blue);
+}
+
+.form-scroll {
+  min-height: 0;
+  margin-right: -10px;
+  padding-right: 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(0, 109, 238, 0.4) transparent;
+  scrollbar-width: thin;
+}
+
+.form-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 109, 238, 0.34);
+  border-radius: 999px;
+}
+
+.form-step {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 12px;
+  border: 0;
+}
+
+.form-step legend {
+  margin-bottom: 3px;
+  color: var(--blue-dark);
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+}
+
+label > span {
+  color: #20324a;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.2;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(0, 109, 238, 0.1);
+}
+
+.form-actions {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 10px;
+  margin: 0 -18px;
+  padding: 12px 18px 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 18%),
+    #ffffff;
+  border-top: 1px solid rgba(220, 231, 245, 0.86);
+}
+
+.form-back,
+.form-next,
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.form-back {
+  color: var(--blue-dark);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.form-back:disabled {
+  color: #9aa8ba;
+  cursor: not-allowed;
+  background: #f6f9fd;
+}
+
+.form-next,
+.submit-button {
+  color: var(--white);
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  box-shadow: 0 14px 30px rgba(0, 109, 238, 0.2);
+}
+
+.submit-button {
+  width: 100%;
+}
+
+.submit-button:not([hidden]) {
+  display: inline-flex;
+}
+
+@media (max-width: 480px) {
+  .formulario-page {
+    min-height: auto;
+  }
+
+  .formulario-parceria-wrap {
+    width: 100%;
+  }
+
+  .hero-proof-card {
+    display: none;
+  }
+
+  .lead-form {
+    height: 540px;
+    min-height: 540px;
+    padding: 18px 18px 0;
+  }
+
+  .form-actions {
+    margin: 0 -18px;
+    padding: 14px 18px 18px;
+  }
+}
