@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+  body { margin: 0; background: transparent; }
+  .formulario-parceria-wrap,
+  .formulario-parceria-wrap *,
+  .formulario-parceria-wrap *::before,
+  .formulario-parceria-wrap *::after { box-sizing: border-box; }
+  .formulario-parceria-wrap {
+    --white: #ffffff;
+    --blue: #006dee;
+    --blue-dark: #003160;
+    --ink: #07111f;
+    --muted: #64748b;
+    --line: #dce7f5;
+    --shadow: 0 24px 70px rgba(0, 49, 96, 0.14);
+    width: min(100%, 420px);
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .formulario-parceria-wrap *,
+  .formulario-parceria-wrap *::before,
+  .formulario-parceria-wrap *::after {
+    font-family: "Montserrat", Arial, sans-serif !important;
+  }
+  .formulario-parceria-wrap button,
+  .formulario-parceria-wrap input,
+  .formulario-parceria-wrap select {
+    font-family: "Montserrat", Arial, sans-serif !important;
+  }
+  .formulario-parceria-wrap [hidden] { display: none !important; }
+  .formulario-parceria-wrap .hero-proof-card {
+    position: relative;
+    display: grid;
+    gap: 7px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 16px 18px;
+    overflow: hidden;
+    color: #ffffff;
+    background: radial-gradient(circle at 88% 0%, rgba(0, 109, 238, 0.38), transparent 44%), var(--blue-dark);
+    border: 1px solid rgba(0, 109, 238, 0.32);
+    border-radius: 8px;
+    box-shadow: 0 22px 58px rgba(0, 49, 96, 0.16);
+  }
+  .formulario-parceria-wrap .hero-proof-card::after {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 26px;
+    height: 26px;
+    content: "";
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    transform: rotate(45deg);
+  }
+  .formulario-parceria-wrap .hero-proof-card span,
+  .formulario-parceria-wrap .hero-proof-card small {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .formulario-parceria-wrap .hero-proof-card strong {
+    max-width: 290px;
+    color: #ffffff;
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+  .formulario-parceria-wrap .hero-proof-card small { color: var(--blue); }
+  .formulario-parceria-wrap .lead-form {
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 11px;
+    width: 100%;
+    height: 540px;
+    min-height: 540px;
+    padding: 18px 18px 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(0, 109, 238, 0.18);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+  }
+  .formulario-parceria-wrap .form-heading p {
+    margin: 0 0 5px;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .formulario-parceria-wrap .form-heading h2 {
+    margin: 0 0 4px;
+    color: var(--blue-dark);
+    font-size: 1.22rem;
+    line-height: 1.2;
+  }
+  .formulario-parceria-wrap .form-progress {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .formulario-parceria-wrap .form-progress span {
+    height: 5px;
+    overflow: hidden;
+    background: var(--line);
+    border-radius: 999px;
+  }
+  .formulario-parceria-wrap .form-progress span.is-active { background: var(--blue); }
+  .formulario-parceria-wrap .form-scroll {
+    min-height: 0;
+    margin-right: -10px;
+    padding-right: 10px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: rgba(0, 109, 238, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+  .formulario-parceria-wrap .form-scroll::-webkit-scrollbar { width: 6px; }
+  .formulario-parceria-wrap .form-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 109, 238, 0.34);
+    border-radius: 999px;
+  }
+  .formulario-parceria-wrap .form-step {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 12px;
+    border: 0;
+  }
+  .formulario-parceria-wrap .form-step legend {
+    margin-bottom: 3px;
+    color: var(--blue-dark);
+    font-size: 0.98rem;
+    font-weight: 800;
+  }
+  .formulario-parceria-wrap label {
+    display: grid;
+    gap: 7px;
+  }
+  .formulario-parceria-wrap label > span {
+    color: #20324a;
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+  .formulario-parceria-wrap input,
+  .formulario-parceria-wrap select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.2;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    outline: none;
+  }
+  .formulario-parceria-wrap input:focus,
+  .formulario-parceria-wrap select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(0, 109, 238, 0.1);
+  }
+  .formulario-parceria-wrap .form-actions {
+    position: sticky;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 10px;
+    margin: 0 -18px;
+    padding: 12px 18px 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 18%), #ffffff;
+    border-top: 1px solid rgba(220, 231, 245, 0.86);
+  }
+  .formulario-parceria-wrap .form-back,
+  .formulario-parceria-wrap .form-next,
+  .formulario-parceria-wrap .submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    border-radius: 6px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .formulario-parceria-wrap .form-back {
+    color: var(--blue-dark);
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  .formulario-parceria-wrap .form-back:disabled {
+    color: #9aa8ba;
+    cursor: not-allowed;
+    background: #f6f9fd;
+  }
+  .formulario-parceria-wrap .form-next,
+  .formulario-parceria-wrap .submit-button {
+    color: var(--white);
+    background: var(--blue);
+    border: 1px solid var(--blue);
+    box-shadow: 0 14px 30px rgba(0, 109, 238, 0.2);
+  }
+  .formulario-parceria-wrap .submit-button { width: 100%; }
+  .formulario-parceria-wrap .submit-button:not([hidden]) { display: inline-flex; }
+  @media (max-width: 760px) {
+    .formulario-parceria-wrap { width: min(100%, 420px); }
+    .formulario-parceria-wrap .hero-proof-card { display: none; }
+    .formulario-parceria-wrap .lead-form {
+      height: 540px;
+      min-height: 540px;
+      padding: 18px 18px 0;
+    }
+    .formulario-parceria-wrap .form-actions {
+      margin: 0 -18px;
+      padding: 14px 18px 18px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="formulario-parceria-wrap">
+  <div class="hero-proof-card" aria-hidden="true">
+    <span>Outmat 360</span>
+    <strong>Produto, instalacao e suporte em uma unica operacao.</strong>
+    <small>500+ casas automatizadas</small>
+  </div>
+  <form class="lead-form" action="Brand/LP 01/obrigado.html">
+    <div class="form-heading">
+      <p>Analise de parceria</p>
+      <h2>Fale com um especialista Outmat</h2>
+    </div>
+    <div class="form-progress" aria-label="Progresso do formulario">
+      <span class="is-active"></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="form-scroll">
+      <fieldset class="form-step is-active" data-step="0">
+        <legend>Dados de contato</legend>
+        <label><span>Nome</span><input type="text" name="nome" autocomplete="name" required></label>
+        <label><span>E-mail profissional</span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span>Telefone</span><input type="tel" name="telefone" autocomplete="tel" inputmode="numeric" placeholder="(11) 94364-7757" required></label>
+      </fieldset>
+      <fieldset class="form-step" data-step="1" hidden>
+        <legend>Perfil dos projetos</legend>
+        <label><span>Qual o seu segmento?</span><select name="segmento" required><option value="">Selecione</option><option>Arquiteto(a)</option><option>Designer de Interiores</option><option>Construtora</option><option>Engenheiro(a)</option><option>Instalador-Integrador de Tecnologia</option><option>Gestor de Hotelaria</option><option>Property Manager (Airbnb)</option><option>Cliente Final-Proprietario do Imovel</option><option>Estudante-Outros</option></select></label>
+        <label><span>Volume de projetos</span><select name="volume" required><option value="">Selecione</option><option>Projetos esporadicos</option><option>Menos de 1 por mes</option><option>1 a 2 projetos por mes</option><option>3 a 5 projetos por mes</option><option>Mais de 5 projetos por mes</option></select></label>
+        <label><span>Padrao dos projetos</span><select name="padrao" required><option value="">Selecione</option><option>Popular-Economico (Ticket Obra menor que R$100k)</option><option>Medio Padrao (R$100k a R$300k)</option><option>Medio-Alto Padrao (R$300k a R$700k)</option><option>Alto Padrao-Luxo (acima de R$700k)</option></select></label>
+      </fieldset>
+      <fieldset class="form-step" data-step="2" hidden>
+        <legend>Necessidade atual</legend>
+        <label><span>Urgencia atual</span><select name="urgencia" required><option value="">Selecione</option><option>Tenho um projeto agora e preciso de orcamento</option><option>Tenho projetos futuros em fase de estudo</option><option>Nao tenho projetos no momento, quero conhecer</option></select></label>
+        <label><span>O que voce espera dessa parceria?</span><select name="expectativa" required><option value="">Selecione</option><option>Full Service (Produtos + Mao de Obra)</option><option>Apenas fornecimento de produtos</option><option>Apenas mao de obra (instalacao)</option><option>Quero ser parceiro Outmat</option></select></label>
+      </fieldset>
+    </div>
+    <div class="form-actions">
+      <button class="form-back" type="button" disabled><span>Voltar</span></button>
+      <button class="form-next" type="button"><span>Continuar</span></button>
+      <button class="submit-button" type="submit" hidden><span>Enviar</span></button>
+    </div>
+  </form>
+</div>
+<script>
+(function() {
+  'use strict';
+  const wrap = document.querySelector('.formulario-parceria-wrap');
+  if (!wrap) return;
+  const leadForm = wrap.querySelector('.lead-form');
+  const steps = Array.from(leadForm.querySelectorAll('.form-step'));
+  const progressItems = Array.from(leadForm.querySelectorAll('.form-progress span'));
+  const backButton = leadForm.querySelector('.form-back');
+  const nextButton = leadForm.querySelector('.form-next');
+  const submitButton = leadForm.querySelector('.submit-button');
+  const formScroll = leadForm.querySelector('.form-scroll');
+  const phoneField = leadForm.querySelector('input[name="telefone"]');
+  let currentStep = 0;
+  function formParceriaOnlyDigits(value) {
+    return String(value || '').replace(/[^0-9]/g, '').slice(0, 11);
+  }
+  function formParceriaFormatBrazilPhone(value) {
+    const digits = formParceriaOnlyDigits(value);
+    const areaCode = digits.slice(0, 2);
+    const firstPart = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
+    const secondPart = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+    if (digits.length <= 2) return areaCode ? '(' + areaCode : '';
+    if (!secondPart) return '(' + areaCode + ') ' + firstPart;
+    return '(' + areaCode + ') ' + firstPart + '-' + secondPart;
+  }
+  function formParceriaSetPhoneDigits(digits) {
+    const cleanDigits = formParceriaOnlyDigits(digits);
+    phoneField.dataset.phoneDigits = cleanDigits;
+    phoneField.value = formParceriaFormatBrazilPhone(cleanDigits);
+  }
+  function formParceriaRenderStep() {
+    steps.forEach(function(step, index) {
+      const isActive = index === currentStep;
+      step.hidden = !isActive;
+      step.classList.toggle('is-active', isActive);
+      Array.from(step.querySelectorAll('input, select, textarea')).forEach(function(field) {
+        field.disabled = !isActive;
+      });
+    });
+    progressItems.forEach(function(item, index) {
+      item.classList.toggle('is-active', index <= currentStep);
+    });
+    backButton.disabled = currentStep === 0;
+    const isLastStep = currentStep === steps.length - 1;
+    nextButton.hidden = isLastStep;
+    submitButton.hidden = !isLastStep;
+    formScroll.scrollTop = 0;
+  }
+  function formParceriaValidateCurrentStep() {
+    const fields = Array.from(steps[currentStep].querySelectorAll('input, select, textarea'));
+    const invalidField = fields.find(function(field) { return !field.checkValidity(); });
+    if (invalidField) {
+      invalidField.reportValidity();
+      return false;
+    }
+    return true;
+  }
+  if (phoneField) {
+    phoneField.dataset.phoneDigits = formParceriaOnlyDigits(phoneField.value);
+    phoneField.addEventListener('beforeinput', function(event) {
+      if (event.inputType === 'insertText' && event.data && !/^[0-9]$/.test(event.data)) {
+        event.preventDefault();
+      }
+    });
+    phoneField.addEventListener('keydown', function(event) {
+      const controlKeys = ['Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter'];
+      if (controlKeys.includes(event.key) || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.key === 'Backspace' || event.key === 'Delete') {
+        event.preventDefault();
+        formParceriaSetPhoneDigits((phoneField.dataset.phoneDigits || '').slice(0, -1));
+        return;
+      }
+      if (/^[0-9]$/.test(event.key)) {
+        event.preventDefault();
+        formParceriaSetPhoneDigits((phoneField.dataset.phoneDigits || '') + event.key);
+      }
+    });
+    phoneField.addEventListener('paste', function(event) {
+      event.preventDefault();
+      const clipboard = event.clipboardData || window.clipboardData;
+      formParceriaSetPhoneDigits((phoneField.dataset.phoneDigits || '') + clipboard.getData('text'));
+    });
+    phoneField.addEventListener('input', function() {
+      formParceriaSetPhoneDigits(phoneField.value);
+    });
+  }
+  nextButton.addEventListener('click', function() {
+    if (!formParceriaValidateCurrentStep()) return;
+    currentStep = Math.min(currentStep + 1, steps.length - 1);
+    formParceriaRenderStep();
+  });
+  backButton.addEventListener('click', function() {
+    currentStep = Math.max(currentStep - 1, 0);
+    formParceriaRenderStep();
+  });
+  leadForm.addEventListener('submit', function(event) {
+    if (currentStep !== steps.length - 1) {
+      event.preventDefault();
+      if (formParceriaValidateCurrentStep()) {
+        currentStep = Math.min(currentStep + 1, steps.length - 1);
+        formParceriaRenderStep();
+      }
+      return;
+    }
+    steps.forEach(function(step) {
+      Array.from(step.querySelectorAll('input, select, textarea')).forEach(function(field) {
+        field.disabled = false;
+      });
+    });
+    submitButton.disabled = true;
+    submitButton.querySelector('span').textContent = 'Enviando...';
+  });
+  formParceriaRenderStep();
+})();
+</script>
+</body>
+</html>

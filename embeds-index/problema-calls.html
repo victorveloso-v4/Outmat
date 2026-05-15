@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: transparent; }
+  .problema-calls-wrap,
+  .problema-calls-wrap *,
+  .problema-calls-wrap *::before,
+  .problema-calls-wrap *::after { box-sizing: border-box; }
+  .problema-calls-wrap {
+    --white: #ffffff;
+    --blue: #006dee;
+    --blue-dark: #003160;
+    --content-max: 1320px;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(68px, 9vw, 120px) clamp(20px, 5vw, 72px);
+    background: radial-gradient(circle at 82% 16%, rgba(0, 109, 238, 0.28), transparent 30%), #000000;
+    color: var(--white);
+    font-family: "Montserrat", Arial, sans-serif;
+  }
+  .problema-calls-wrap::after {
+    position: absolute;
+    right: -18vw;
+    top: -18vw;
+    width: 42vw;
+    height: 42vw;
+    min-width: 420px;
+    min-height: 420px;
+    content: "";
+    border: 48px solid rgba(0, 109, 238, 0.22);
+    border-radius: 50%;
+  }
+  .problema-calls-wrap h2,
+  .problema-calls-wrap h3,
+  .problema-calls-wrap p { margin-top: 0; }
+  .problema-calls-wrap .section-heading {
+    max-width: var(--content-max);
+    margin: 0 auto 42px;
+    text-align: left;
+  }
+  .problema-calls-wrap .section-kicker {
+    margin: 0 0 16px;
+    color: var(--blue);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  .problema-calls-wrap .section-heading h2 {
+    max-width: 880px;
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: clamp(1.75rem, 3.15vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+  .problema-calls-wrap .problem-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+    gap: 24px;
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .problema-calls-wrap .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .problema-calls-wrap .problem-cards article,
+  .problema-calls-wrap .missed-call-stack div {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 109, 238, 0.28);
+    border-radius: 24px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .problema-calls-wrap .problem-cards article {
+    min-height: 220px;
+    padding: 30px;
+  }
+  .problema-calls-wrap .problem-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 24px;
+    color: var(--blue);
+    background: rgba(0, 109, 238, 0.1);
+    border: 1px solid rgba(0, 109, 238, 0.32);
+    border-radius: 18px;
+    box-shadow: 0 0 24px rgba(0, 109, 238, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .problema-calls-wrap .problem-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2.3;
+  }
+  .problema-calls-wrap .problem-cards h3 {
+    margin-bottom: 14px;
+    color: #ffffff;
+    font-size: 1.28rem;
+    line-height: 1.16;
+  }
+  .problema-calls-wrap .problem-cards p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.64);
+    line-height: 1.7;
+  }
+  .problema-calls-wrap .missed-call-stack {
+    display: grid;
+    align-content: center;
+    gap: 14px;
+  }
+  .problema-calls-wrap .missed-call-stack div {
+    display: grid;
+    gap: 5px;
+    padding: 22px;
+    animation: problemaCallsSoftFloat 5s ease-in-out infinite;
+  }
+  .problema-calls-wrap .missed-call-stack div:nth-child(2) {
+    margin-left: 32px;
+    animation-delay: 0.8s;
+  }
+  .problema-calls-wrap .missed-call-stack div:nth-child(3) {
+    margin-left: 14px;
+    animation-delay: 1.6s;
+  }
+  .problema-calls-wrap .missed-call-stack span {
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .problema-calls-wrap .missed-call-stack strong {
+    color: #ffffff;
+    font-size: 1.02rem;
+  }
+  .problema-calls-wrap .missed-call-stack small {
+    color: var(--blue);
+    font-weight: 800;
+  }
+  .problema-calls-wrap .primary-button {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    min-height: 52px;
+    margin: 34px auto 0;
+    padding: 0 22px;
+    color: var(--white);
+    background: var(--blue);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 16px 34px rgba(0, 109, 238, 0.25);
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .problema-calls-wrap .primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(0, 109, 238, 0.28);
+  }
+  @keyframes problemaCallsSoftFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+  }
+  @media (max-width: 1080px) {
+    .problema-calls-wrap .problem-layout { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .problema-calls-wrap { padding: 64px 20px; }
+    .problema-calls-wrap .problem-cards { grid-template-columns: 1fr; }
+    .problema-calls-wrap .problem-cards article,
+    .problema-calls-wrap .missed-call-stack div { border-radius: 18px; }
+    .problema-calls-wrap .missed-call-stack div:nth-child(2),
+    .problema-calls-wrap .missed-call-stack div:nth-child(3) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<section class="problema-calls-wrap">
+  <div class="section-heading">
+    <p class="section-kicker">Problema</p>
+    <h2>Chega de ter problemas com automacoes mal resolvidas na sua obra.</h2>
+  </div>
+  <div class="problem-layout">
+    <div class="problem-cards">
+      <article><span class="problem-icon"><i data-lucide="network" aria-hidden="true"></i></span><h3>Varios fornecedores</h3><p>Um vende, outro instala e ninguem assume o problema.</p></article>
+      <article><span class="problem-icon"><i data-lucide="phone-call" aria-hidden="true"></i></span><h3>Cliente cobrando</h3><p>Quando algo falha, a credibilidade do projeto fica nas suas maos.</p></article>
+      <article><span class="problem-icon"><i data-lucide="repeat-2" aria-hidden="true"></i></span><h3>Retrabalho e desgaste</h3><p>Falta de integracao gera atrasos, ruido e perda de valor.</p></article>
+      <article><span class="problem-icon"><i data-lucide="workflow" aria-hidden="true"></i></span><h3>Operacao desorganizada</h3><p>A automacao vira um gargalo em vez de valor agregado.</p></article>
+    </div>
+    <div class="missed-call-stack" aria-label="Ligacoes perdidas do cliente">
+      <div><span>Cliente</span><strong>Ligacao perdida</strong><small>agora</small></div>
+      <div><span>Cliente</span><strong>Ligacao perdida</strong><small>2m atras</small></div>
+      <div><span>Cliente</span><strong>Ligacao perdida</strong><small>5m atras</small></div>
+    </div>
+  </div>
+  <a class="primary-button" href="#formulario"><span>Quero ser parceiro Outmat</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+</section>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+(function() {
+  'use strict';
+  if (window.lucide) window.lucide.createIcons();
+})();
+</script>
+</body>
+</html>
