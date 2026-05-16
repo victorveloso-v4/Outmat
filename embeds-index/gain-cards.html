@@ -7,11 +7,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap");
   body { margin: 0; background: transparent; }
   .gain-cards-wrap,
   .gain-cards-wrap *,
   .gain-cards-wrap *::before,
-  .gain-cards-wrap *::after { box-sizing: border-box; }
+  .gain-cards-wrap *::after {
+    box-sizing: border-box;
+    font-family: "Montserrat", Arial, sans-serif !important;
+  }
   .gain-cards-wrap {
     --blue: #006dee;
     --blue-dark: #003160;
@@ -21,7 +25,8 @@
     padding: clamp(68px, 9vw, 120px) clamp(20px, 5vw, 72px);
     background: #ffffff;
     color: var(--ink);
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 16px;
   }
   .gain-cards-wrap h2,
   .gain-cards-wrap h3,
@@ -36,6 +41,7 @@
     color: var(--blue);
     font-size: 0.76rem;
     font-weight: 800;
+    font-family: "Montserrat", Arial, sans-serif !important;
     text-transform: uppercase;
   }
   .gain-cards-wrap .section-heading h2 {
@@ -43,6 +49,7 @@
     color: var(--blue-dark);
     font-size: clamp(1.75rem, 3.15vw, 3.2rem);
     font-weight: 800;
+    font-family: "Montserrat", Arial, sans-serif !important;
     line-height: 1.08;
   }
   .gain-cards-wrap .gain-grid {
@@ -101,10 +108,15 @@
     margin-bottom: 12px;
     color: var(--blue-dark);
     font-size: 1.28rem;
+    font-weight: 800;
+    font-family: "Montserrat", Arial, sans-serif !important;
     line-height: 1.25;
   }
   .gain-cards-wrap .gain-grid p {
     color: var(--muted);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif !important;
     line-height: 1.7;
   }
   @media (max-width: 1080px) {
