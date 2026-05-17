@@ -5,149 +5,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap");
-  body { margin: 0; background: transparent; }
+  body {
+    margin: 0;
+    background: transparent;
+  }
+
   .gain-cards-wrap,
-  .gain-cards-wrap *,
-  .gain-cards-wrap *::before,
-  .gain-cards-wrap *::after {
+  .gain-cards-wrap * {
     box-sizing: border-box;
     font-family: "Montserrat", Arial, sans-serif !important;
   }
+
   .gain-cards-wrap {
     --blue: #006dee;
     --blue-dark: #003160;
     --ink: #07111f;
     --muted: #64748b;
-    --content-max: 1320px;
-    padding: clamp(68px, 9vw, 120px) clamp(20px, 5vw, 72px);
-    background: #ffffff;
+    --line: #d8e8fb;
+    --content-max: 1180px;
+    width: 100%;
+    padding: clamp(78px, 8vw, 118px) 24px;
     color: var(--ink);
-    font-family: "Montserrat", Arial, sans-serif !important;
-    font-size: 16px;
+    background: #ffffff;
   }
-  .gain-cards-wrap h2,
-  .gain-cards-wrap h3,
-  .gain-cards-wrap p { margin-top: 0; }
-  .gain-cards-wrap .section-heading {
-    max-width: 980px;
+
+  .gain-inner {
+    width: min(100%, var(--content-max));
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    max-width: 900px;
     margin: 0 auto 42px;
     text-align: center;
   }
-  .gain-cards-wrap .section-kicker {
-    margin: 0 0 16px;
+
+  .section-kicker {
+    margin: 0 0 12px;
     color: var(--blue);
     font-size: 0.76rem;
     font-weight: 800;
-    font-family: "Montserrat", Arial, sans-serif !important;
     text-transform: uppercase;
   }
-  .gain-cards-wrap .section-heading h2 {
-    margin-bottom: 16px;
+
+  .section-heading h2 {
+    margin: 0 0 14px;
     color: var(--blue-dark);
-    font-size: clamp(1.75rem, 3.15vw, 3.2rem);
+    font-size: clamp(2rem, 4vw, 3.35rem);
     font-weight: 800;
-    font-family: "Montserrat", Arial, sans-serif !important;
-    line-height: 1.08;
+    line-height: 1.06;
   }
-  .gain-cards-wrap .gain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    max-width: var(--content-max);
+
+  .section-heading p {
+    max-width: 720px;
     margin: 0 auto;
-  }
-  .gain-cards-wrap .gain-grid article {
-    position: relative;
-    min-height: 390px;
-    padding: 34px 30px 56px;
-    overflow: hidden;
-    color: var(--ink);
-    background: #ffffff;
-    border: 1px solid rgba(0, 109, 238, 0.18);
-    border-radius: 28px;
-    box-shadow: 0 18px 48px rgba(0, 49, 96, 0.08);
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  }
-  .gain-cards-wrap .gain-grid article::after {
-    position: absolute;
-    left: 24px;
-    bottom: 18px;
-    width: 120px;
-    height: 3px;
-    content: "";
-    background: linear-gradient(90deg, var(--blue), rgba(0, 109, 238, 0));
-    border-radius: 999px;
-  }
-  .gain-cards-wrap .gain-grid article:hover {
-    transform: translateY(-8px);
-    border-color: rgba(0, 109, 238, 0.34);
-    box-shadow: 0 28px 70px rgba(0, 49, 96, 0.14);
-  }
-  .gain-cards-wrap .gain-grid span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 82px;
-    height: 82px;
-    margin-bottom: 34px;
-    color: var(--blue);
-    background: #f5f9ff;
-    border: 1px solid rgba(0, 109, 238, 0.22);
-    border-radius: 24px;
-    box-shadow: 0 14px 32px rgba(0, 49, 96, 0.08);
-  }
-  .gain-cards-wrap .gain-grid span svg {
-    width: 34px;
-    height: 34px;
-    color: var(--blue);
-  }
-  .gain-cards-wrap .gain-grid h3 {
-    margin-bottom: 12px;
-    color: var(--blue-dark);
-    font-size: 1.28rem;
-    font-weight: 800;
-    font-family: "Montserrat", Arial, sans-serif !important;
-    line-height: 1.25;
-  }
-  .gain-cards-wrap .gain-grid p {
     color: var(--muted);
     font-size: 1rem;
     font-weight: 500;
-    font-family: "Montserrat", Arial, sans-serif !important;
     line-height: 1.7;
   }
-  @media (max-width: 1080px) {
-    .gain-cards-wrap .gain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .gain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
   }
-  @media (max-width: 760px) {
-    .gain-cards-wrap { padding: 64px 20px; }
-    .gain-cards-wrap .gain-grid { grid-template-columns: 1fr; }
-    .gain-cards-wrap .gain-grid article { border-radius: 18px; }
+
+  .gain-card {
+    min-height: 310px;
+    padding: 30px 26px;
+    color: var(--ink);
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 16px 42px rgba(0, 49, 96, 0.08);
+  }
+
+  .gain-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 26px;
+    color: var(--blue);
+    background: #f1f7ff;
+    border: 1px solid #cbe2ff;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .gain-card h3 {
+    margin: 0 0 12px;
+    color: var(--blue-dark);
+    font-size: 1.16rem;
+    font-weight: 800;
+    line-height: 1.22;
+  }
+
+  .gain-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 980px) {
+    .gain-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .gain-cards-wrap {
+      padding: 76px 18px;
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    .gain-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gain-card {
+      min-height: 0;
+      padding: 24px;
+    }
   }
 </style>
 </head>
 <body>
 <section class="gain-cards-wrap">
-  <div class="section-heading">
-    <p class="section-kicker">Transformacao</p>
-    <h2>Voce fara parte do 1% do mercado que cobra os maiores valores por seus servicos.</h2>
-  </div>
-  <div class="gain-grid">
-    <article><span><i data-lucide="gem" aria-hidden="true"></i></span><h3>Diferenciacao do mercado</h3><p>Enquanto a maioria esta no basico, automacoes de alto padrao te destacam.</p></article>
-    <article><span><i data-lucide="trending-up" aria-hidden="true"></i></span><h3>Maior valor agregado</h3><p>Com uma entrega mais completa, voce aumenta seu valor e sobe o preco.</p></article>
-    <article><span><i data-lucide="settings" aria-hidden="true"></i></span><h3>Sem carga tecnica</h3><p>Voce oferece automacao sem precisar estudar ou executar a parte tecnica.</p></article>
-    <article><span><i data-lucide="zap" aria-hidden="true"></i></span><h3>Operacao eficiente</h3><p>Automacoes residenciais deixam de ser um risco e gargalo nos projetos.</p></article>
+  <div class="gain-inner">
+    <div class="section-heading">
+      <p class="section-kicker">Transformação</p>
+      <h2>Mas afinal, como você sai ganhando nessa parceria?</h2>
+      <p>Você fará parte do grupo de projetistas que cobram os maiores valores por seus serviços.</p>
+    </div>
+
+    <div class="gain-grid">
+      <article class="gain-card">
+        <span class="gain-number">01</span>
+        <h3>Diferenciação do mercado</h3>
+        <p>Enquanto a maioria está no básico, automações de alto padrão te destacam.</p>
+      </article>
+
+      <article class="gain-card">
+        <span class="gain-number">02</span>
+        <h3>Maior valor agregado</h3>
+        <p>Com uma entrega mais completa, você aumenta seu valor e sobe o preço.</p>
+      </article>
+
+      <article class="gain-card">
+        <span class="gain-number">03</span>
+        <h3>Sem carga técnica</h3>
+        <p>Você oferece automação sem precisar estudar ou executar a parte técnica.</p>
+      </article>
+
+      <article class="gain-card">
+        <span class="gain-number">04</span>
+        <h3>Operação eficiente</h3>
+        <p>Automações residenciais deixam de ser um risco e gargalo nos projetos.</p>
+      </article>
+    </div>
   </div>
 </section>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>
-(function() {
-  'use strict';
-  if (window.lucide) window.lucide.createIcons();
-})();
-</script>
 </body>
 </html>

@@ -5,214 +5,258 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: transparent; }
+  body {
+    margin: 0;
+    background: transparent;
+  }
+
   .solucao-orbit-wrap,
-  .solucao-orbit-wrap *,
-  .solucao-orbit-wrap *::before,
-  .solucao-orbit-wrap *::after { box-sizing: border-box; }
+  .solucao-orbit-wrap * {
+    box-sizing: border-box;
+    font-family: "Montserrat", Arial, sans-serif !important;
+  }
+
   .solucao-orbit-wrap {
     --blue: #006dee;
     --blue-dark: #003160;
     --ink: #07111f;
     --muted: #64748b;
-    --content-max: 1320px;
-    overflow: hidden;
-    padding: clamp(68px, 9vw, 120px) clamp(20px, 5vw, 72px);
-    background: radial-gradient(circle at 50% 48%, rgba(0, 109, 238, 0.16), transparent 24%), linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+    --line: #d8e8fb;
+    --content-max: 1180px;
+    width: 100%;
+    padding: clamp(78px, 8vw, 118px) 24px;
     color: var(--ink);
-    font-family: "Montserrat", Arial, sans-serif;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
   }
-  .solucao-orbit-wrap h2,
-  .solucao-orbit-wrap h3,
-  .solucao-orbit-wrap p { margin-top: 0; }
-  .solucao-orbit-wrap .section-heading {
-    max-width: 850px;
-    margin: 0 auto 42px;
+
+  .solucao-inner {
+    width: min(100%, var(--content-max));
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    max-width: 860px;
+    margin: 0 auto 46px;
     text-align: center;
   }
-  .solucao-orbit-wrap .section-kicker {
-    margin: 0 0 16px;
+
+  .section-kicker {
+    margin: 0 0 12px;
     color: var(--blue);
     font-size: 0.76rem;
     font-weight: 800;
     text-transform: uppercase;
   }
-  .solucao-orbit-wrap .section-heading h2 {
-    margin-bottom: 16px;
+
+  .section-heading h2 {
+    margin: 0 0 16px;
     color: var(--blue-dark);
-    font-size: clamp(1.75rem, 3.15vw, 3.2rem);
+    font-size: clamp(2rem, 4vw, 3.35rem);
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.06;
   }
-  .solucao-orbit-wrap .section-heading p:not(.section-kicker) {
-    color: var(--muted);
-    font-size: 1.02rem;
-    line-height: 1.7;
-  }
-  .solucao-orbit-wrap .solution-orbit {
-    display: grid;
-    grid-template-columns: minmax(260px, 0.8fr) minmax(280px, 0.7fr) minmax(260px, 0.8fr);
-    align-items: center;
-    gap: 24px;
-    max-width: var(--content-max);
+
+  .section-heading p {
     margin: 0 auto;
-  }
-  .solucao-orbit-wrap .floating-column {
-    position: relative;
-    display: grid;
-    gap: 18px;
-  }
-  .solucao-orbit-wrap .floating-column.right { padding-top: 54px; }
-  .solucao-orbit-wrap .solution-core {
-    position: relative;
-    display: grid;
-    justify-items: center;
-    min-height: 420px;
-    padding: 48px 28px;
-    color: #ffffff;
-    text-align: center;
-    background: radial-gradient(circle at 50% 0%, rgba(0, 109, 238, 0.32), transparent 38%), var(--blue-dark);
-    border: 1px solid rgba(0, 109, 238, 0.34);
-    border-radius: 34px;
-    box-shadow: 0 36px 90px rgba(0, 49, 96, 0.18);
-  }
-  .solucao-orbit-wrap .solution-core::before {
-    width: 118px;
-    height: 118px;
-    margin-bottom: 24px;
-    content: "";
-    border: 2px solid var(--blue);
-    border-radius: 34px;
-    box-shadow: 0 0 36px rgba(0, 109, 238, 0.35), inset 0 0 20px rgba(0, 109, 238, 0.2);
-  }
-  .solucao-orbit-wrap .solution-logo {
-    margin-bottom: 26px;
-    color: #ffffff;
-    font-size: 1.55rem;
-    font-weight: 800;
-    letter-spacing: 0;
-  }
-  .solucao-orbit-wrap .solution-core h3 {
-    max-width: 360px;
-    margin-bottom: 14px;
-    font-size: 1.32rem;
-    line-height: 1.24;
-  }
-  .solucao-orbit-wrap .solution-core p {
-    max-width: 360px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.68);
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 500;
     line-height: 1.7;
   }
-  .solucao-orbit-wrap .feature-card {
-    position: relative;
-    min-height: 0;
-    padding: 24px;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(0, 109, 238, 0.2);
-    border-radius: 24px;
-    box-shadow: 0 18px 48px rgba(0, 49, 96, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    animation: solucaoOrbitSoftFloat 5s ease-in-out infinite;
+
+  .solution-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 22px;
+    align-items: stretch;
   }
-  .solucao-orbit-wrap .feature-card::after {
-    position: absolute;
-    left: 24px;
-    bottom: 18px;
-    width: 120px;
-    height: 3px;
-    content: "";
-    background: linear-gradient(90deg, var(--blue), rgba(0, 109, 238, 0));
-    border-radius: 999px;
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
-  .solucao-orbit-wrap .feature-card svg {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 16px;
+
+  .feature-card,
+  .solution-core {
+    border-radius: 16px;
+    box-shadow: 0 16px 42px rgba(0, 49, 96, 0.08);
+  }
+
+  .feature-card {
+    min-height: 190px;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+  }
+
+  .feature-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 20px;
     color: var(--blue);
-    filter: drop-shadow(0 0 10px rgba(0, 109, 238, 0.55));
+    background: #f1f7ff;
+    border: 1px solid #cbe2ff;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    font-weight: 800;
   }
-  .solucao-orbit-wrap .feature-card h3 {
-    margin-bottom: 12px;
+
+  .feature-card h3 {
+    margin: 0 0 10px;
     color: var(--blue-dark);
-    font-size: 0.98rem;
+    font-size: 1rem;
+    font-weight: 800;
     line-height: 1.25;
   }
-  .solucao-orbit-wrap .feature-card p {
-    margin-bottom: 18px;
+
+  .feature-card p {
+    margin: 0;
     color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+
+  .solution-core {
+    display: flex;
+    min-height: 100%;
+    padding: 34px;
+    color: #ffffff;
+    background: #003160;
+    border: 1px solid rgba(0, 109, 238, 0.36);
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .solution-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 24px;
+    color: #ffffff;
+    background: #004f9f;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    font-size: 1.45rem;
+    font-weight: 800;
+  }
+
+  .solution-core h3 {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.24;
+  }
+
+  .solution-core p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.96rem;
+    font-weight: 500;
     line-height: 1.7;
   }
-  .solucao-orbit-wrap .float-two {
-    margin-left: 34px;
-    animation-delay: 0.8s;
+
+  @media (max-width: 980px) {
+    .solution-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .solution-core {
+      min-height: 300px;
+      order: -1;
+    }
   }
-  .solucao-orbit-wrap .float-three {
-    margin-left: 10px;
-    animation-delay: 1.6s;
-  }
-  .solucao-orbit-wrap .right .float-two {
-    margin-left: 0;
-    margin-right: 34px;
-  }
-  .solucao-orbit-wrap .right .float-three {
-    margin-left: 0;
-    margin-right: 10px;
-  }
-  @keyframes solucaoOrbitSoftFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-9px); }
-  }
-  @media (max-width: 1080px) {
-    .solucao-orbit-wrap .solution-orbit { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 760px) {
-    .solucao-orbit-wrap { padding: 64px 20px; }
-    .solucao-orbit-wrap .feature-card,
-    .solucao-orbit-wrap .solution-core { border-radius: 18px; }
-    .solucao-orbit-wrap .float-two,
-    .solucao-orbit-wrap .float-three,
-    .solucao-orbit-wrap .right .float-two,
-    .solucao-orbit-wrap .right .float-three {
-      margin-left: 0;
-      margin-right: 0;
+
+  @media (max-width: 700px) {
+    .solucao-orbit-wrap {
+      padding: 76px 18px;
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+      min-height: 0;
+      padding: 24px;
+    }
+
+    .solution-core {
+      min-height: 0;
+      padding: 30px 24px;
     }
   }
 </style>
 </head>
 <body>
 <section class="solucao-orbit-wrap">
-  <div class="section-heading">
-    <p class="section-kicker">Solucao 360</p>
-    <h2>Da fabricacao ao planejamento, instalacao e suporte.</h2>
-    <p>Veja tudo o que voce tera nos seus projetos ao se tornar parceiro Outmat.</p>
-  </div>
-  <div class="solution-orbit">
-    <div class="floating-column">
-      <article class="feature-card float-one"><i data-lucide="factory" aria-hidden="true"></i><h3>Controle total</h3><p>Fabricacao propria garante controle na qualidade dos equipamentos.</p></article>
-      <article class="feature-card float-two"><i data-lucide="workflow" aria-hidden="true"></i><h3>Software integrado</h3><p>Equipamentos funcionam juntos e elevam o nivel da sua entrega.</p></article>
-      <article class="feature-card float-three"><i data-lucide="pen-tool" aria-hidden="true"></i><h3>Planejamento estrategico</h3><p>Automacoes pensadas desde o inicio, evitando erros e retrabalho.</p></article>
+  <div class="solucao-inner">
+    <div class="section-heading">
+      <p class="section-kicker">Solução 360</p>
+      <h2>Do planejamento à instalação e suporte.</h2>
+      <p>Veja tudo o que você terá nos seus projetos ao se tornar parceiro Outmat.</p>
     </div>
-    <div class="solution-core">
-      <div class="solution-logo">Outmat</div>
-      <h3>Automacoes residenciais nunca mais serao um problema.</h3>
-      <p>Uma operacao centralizada para entregar mais valor, menos risco e uma obra mais previsivel.</p>
-    </div>
-    <div class="floating-column right">
-      <article class="feature-card float-one"><i data-lucide="wrench" aria-hidden="true"></i><h3>Instalacao especializada</h3><p>Toda a instalacao tecnica e realizada por nossos especialistas.</p></article>
-      <article class="feature-card float-two"><i data-lucide="headphones" aria-hidden="true"></i><h3>Suporte direto</h3><p>Voce fala com quem resolve, sem intermediarios ou demora.</p></article>
-      <article class="feature-card float-three"><i data-lucide="network" aria-hidden="true"></i><h3>Centralizacao total</h3><p>Nos cuidamos de tudo, sem desordem na operacao.</p></article>
+
+    <div class="solution-layout">
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01</span>
+          <h3>Controle total</h3>
+          <p>Fabricação própria garante controle na qualidade dos equipamentos.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">02</span>
+          <h3>Software integrado</h3>
+          <p>Equipamentos funcionam juntos e elevam o nível da sua entrega.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">03</span>
+          <h3>Planejamento estratégico</h3>
+          <p>Automações pensadas desde o início, evitando erros e retrabalho.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">04</span>
+          <h3>Instalação especializada</h3>
+          <p>Toda a instalação técnica é realizada por nossos especialistas.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">05</span>
+          <h3>Suporte direto</h3>
+          <p>Você fala com quem resolve, sem intermediários ou demora.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">06</span>
+          <h3>Centralização total</h3>
+          <p>Nós cuidamos de tudo, sem desordem na operação.</p>
+        </article>
+      </div>
+
+      <aside class="solution-core">
+        <div class="solution-logo">360</div>
+        <h3>Automações residenciais nunca mais serão um problema.</h3>
+        <p>Uma operação centralizada para entregar mais valor, menos risco e uma obra mais previsível.</p>
+      </aside>
     </div>
   </div>
 </section>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>
-(function() {
-  'use strict';
-  if (window.lucide) window.lucide.createIcons();
-})();
-</script>
 </body>
 </html>
