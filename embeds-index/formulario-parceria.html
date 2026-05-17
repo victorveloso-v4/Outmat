@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
-  body { margin: 0; background: transparent; }
+  html,
+  body {
+    margin: 0;
+    background: transparent;
+    overscroll-behavior: none;
+  }
   .formulario-parceria-wrap,
   .formulario-parceria-wrap *,
   .formulario-parceria-wrap *::before,
@@ -278,6 +283,24 @@
   const formScroll = leadForm.querySelector('.form-scroll');
   const phoneField = leadForm.querySelector('input[name="telefone"]');
   let currentStep = 0;
+  function formParceriaPostIframeHeight() {
+    if (window.parent === window) return;
+    window.parent.postMessage({
+      source: 'outmat-formulario',
+      type: 'resize',
+      height: document.documentElement.scrollHeight
+    }, '*');
+  }
+  function formParceriaForwardWheelToParent(event) {
+    if (window.parent === window) return;
+    event.preventDefault();
+    window.parent.postMessage({
+      source: 'outmat-formulario',
+      type: 'wheel',
+      deltaX: event.deltaX,
+      deltaY: event.deltaY
+    }, '*');
+  }
   function formParceriaOnlyDigits(value) {
     const rawValue = String(value || '').trim();
     let digits = rawValue.replace(/[^0-9]/g, '');
@@ -321,6 +344,7 @@
     nextButton.hidden = isLastStep;
     submitButton.hidden = !isLastStep;
     formScroll.scrollTop = 0;
+    formParceriaPostIframeHeight();
   }
   function formParceriaValidateCurrentStep() {
     const fields = Array.from(steps[currentStep].querySelectorAll('input, select, textarea'));
@@ -386,6 +410,9 @@
     submitButton.disabled = true;
     submitButton.querySelector('span').textContent = 'Enviando...';
   });
+  window.addEventListener('load', formParceriaPostIframeHeight);
+  window.addEventListener('resize', formParceriaPostIframeHeight);
+  window.addEventListener('wheel', formParceriaForwardWheelToParent, { passive: false });
   formParceriaRenderStep();
 })();
 </script>
