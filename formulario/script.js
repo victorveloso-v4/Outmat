@@ -12,6 +12,7 @@
   const submitButton = leadForm.querySelector('.submit-button');
   const formScroll = leadForm.querySelector('.form-scroll');
   const phoneField = leadForm.querySelector('input[name="telefone"]');
+  const redirectUrl = leadForm.dataset.redirectUrl || leadForm.action;
   let currentStep = 0;
 
   function onlyDigits(value) {
@@ -168,6 +169,12 @@
       type: 'submit',
       payload: Object.fromEntries(new FormData(leadForm).entries())
     }, '*');
+
+    try {
+      window.top.location.href = redirectUrl;
+    } catch (error) {
+      window.location.href = redirectUrl;
+    }
   });
 
   window.addEventListener('load', postIframeHeight);
