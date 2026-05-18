@@ -95,6 +95,29 @@
     return true;
   }
 
+  function redirectAfterSubmit() {
+    if (window.parent === window) {
+      window.location.href = redirectUrl;
+      return;
+    }
+
+    window.parent.postMessage({
+      source: 'outmat-formulario',
+      type: 'redirect',
+      url: redirectUrl
+    }, '*');
+
+    try {
+      window.open(redirectUrl, '_top');
+    } catch (error) {
+      try {
+        window.top.location.href = redirectUrl;
+      } catch (topError) {
+        return;
+      }
+    }
+  }
+
   if (phoneField) {
     phoneField.dataset.phoneDigits = onlyDigits(phoneField.value);
 
@@ -170,11 +193,7 @@
       payload: Object.fromEntries(new FormData(leadForm).entries())
     }, '*');
 
-    try {
-      window.top.location.href = redirectUrl;
-    } catch (error) {
-      window.location.href = redirectUrl;
-    }
+    redirectAfterSubmit();
   });
 
   window.addEventListener('load', postIframeHeight);

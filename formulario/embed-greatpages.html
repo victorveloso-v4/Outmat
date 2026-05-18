@@ -46,6 +46,10 @@
         if (!iframe || !event.data.height) return;
         iframe.style.height = Math.max(660, Number(event.data.height)) + 'px';
       }
+
+      if (event.data.type === 'redirect' && event.data.url) {
+        window.location.href = event.data.url;
+      }
     });
   })();
 </script>
