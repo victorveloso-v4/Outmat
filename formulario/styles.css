@@ -27,7 +27,7 @@ body {
   --blue-dark: #003160;
   --ink: #07111f;
   --line: #dce7f5;
-  --shadow: 0 8px 28px rgba(0, 49, 96, 0.08), 0 0 24px rgba(0, 109, 238, 0.08);
+  --shadow: 0 28px 80px rgba(0, 20, 48, 0.28), 0 0 0 1px rgba(0, 109, 238, 0.24);
   display: grid;
   justify-items: center;
   width: 100%;
@@ -109,16 +109,18 @@ select {
   min-height: 0;
   padding: 18px 18px 0;
   overflow: visible;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(0, 109, 238, 0.18);
-  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(0, 109, 238, 0.28), transparent 36%),
+    linear-gradient(180deg, #003160 0%, #001a33 100%);
+  border: 1px solid rgba(0, 109, 238, 0.42);
+  border-radius: 18px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
 
 .form-heading p {
   margin: 0 0 5px;
-  color: var(--blue);
+  color: #5da5ff;
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -126,7 +128,7 @@ select {
 
 .form-heading h1 {
   margin: 0 0 4px;
-  color: var(--blue-dark);
+  color: #ffffff;
   font-size: 1.22rem;
   line-height: 1.2;
 }
@@ -140,7 +142,7 @@ select {
 .form-progress span {
   height: 5px;
   overflow: hidden;
-  background: var(--line);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 999px;
 }
 
@@ -166,7 +168,7 @@ select {
 
 .form-step legend {
   margin-bottom: 3px;
-  color: var(--blue-dark);
+  color: #ffffff;
   font-size: 0.98rem;
   font-weight: 800;
 }
@@ -177,7 +179,7 @@ label {
 }
 
 label > span {
-  color: #20324a;
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.86rem;
   font-weight: 800;
 }
@@ -191,15 +193,15 @@ select {
   font-size: 1rem;
   line-height: 1.2;
   background: var(--white);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 6px;
   outline: none;
 }
 
 input:focus,
 select:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(0, 109, 238, 0.1);
+  border-color: #5da5ff;
+  box-shadow: 0 0 0 4px rgba(0, 109, 238, 0.22);
 }
 
 .form-actions {
@@ -209,9 +211,9 @@ select:focus {
   margin: 2px -18px 0;
   padding: 14px 18px 18px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 18%),
-    #ffffff;
-  border-top: 1px solid rgba(220, 231, 245, 0.86);
+    linear-gradient(180deg, rgba(0, 26, 51, 0), rgba(0, 20, 39, 0.96) 24%),
+    #001427;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .form-back,
@@ -228,15 +230,15 @@ select:focus {
 }
 
 .form-back {
-  color: var(--blue-dark);
-  background: var(--white);
-  border: 1px solid var(--line);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .form-back:disabled {
-  color: #9aa8ba;
+  color: rgba(255, 255, 255, 0.42);
   cursor: not-allowed;
-  background: #f6f9fd;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .form-next,
@@ -244,7 +246,7 @@ select:focus {
   color: var(--white);
   background: var(--blue);
   border: 1px solid var(--blue);
-  box-shadow: 0 14px 30px rgba(0, 109, 238, 0.2);
+  box-shadow: 0 18px 38px rgba(0, 109, 238, 0.34);
 }
 
 .submit-button {
